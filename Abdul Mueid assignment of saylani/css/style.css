@@ -1,0 +1,12 @@
+.brd{
+    border: 1px solid red;
+}
+.btn-info{
+    color: #fff;
+    background-color: #052a30;
+    border-color: #052a30;
+}
+
+.bkg{
+    background-color: blue;
+}

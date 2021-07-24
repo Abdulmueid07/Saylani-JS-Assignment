@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+
+<body>
+    <h2>Task 4</h2>
+    <form name="record">
+        <div class="container">
+            <div class="form-row">
+                <input type="text" name="name" placeholder="name" class="form-control"></input>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="gender" value="male" class="form-check-input">Male</input>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="gender" value="female" class="form-check-input">Female</input><br>
+            </div>
+            <div class="form-row">
+                <input type="text" name="address" placeholder="address" class="form-control">
+            </div>
+            <div class="form-check">
+                <input type="checkbox" name="education" value="education" class="form-check-input">Education</input>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" name="profession" value="profession" class="form-check-input">profession</input>
+            </div>
+            <input type="button" value="Submit" class="btn btn-primary" onclick="reCord()">
+        </div>
+    </form>
+
+
+    <script>
+        // Suppose You have an array of object
+        // var itemsArray = [
+        // {name:”juice”,price:”50”, quantity:”3”},
+        // {name:”cookie”,price:”30”, quantity:”9”},
+        // {name:”shirt”,price:”880”, quantity:”1”},
+        // {name:”pen”,price:”100”, quantity:”2”}];
+        // Calculate total price of each item and all items;
+
+        document.write(" <h2> Task 1 </h2>");
+        var itemsArray = [
+            { name: "juice", price: "50", quantity: "3" },
+            { name: "cookie", price: "30", quantity: "9" },
+            { name: "shirt", price: "880", quantity: "1" },
+            { name: "pen", price: "100", quantity: "2" }
+        ];
+        var b = 0;
+        for (var i = 0; i < itemsArray.length; i++) {
+            var a = itemsArray[i].price * itemsArray[i].quantity;
+            b += a;
+            document.write("Total Price of " + itemsArray[i].name + " is " + a + "<br>")
+        }
+        document.write("<b> Total Price of all items are </b>" + b);
+
+
+        // Create an object with properties name, email, password, age,
+        // gender, city, country.
+        // Check if age and country properties exist in object or not.
+        // Also check firstName and lastName properties in object
+
+        document.write("<br> <br> <h2> Task 2 </h2> <br>");
+        var PersonalInfo = {
+            name: "Abdul Mueid",
+            email: "Abdulmueid07@gmail.com",
+            password: "1234",
+            age: "23",
+            gender: "Male",
+            city: "Karachi",
+            country: "Pakistan"
+        }
+        var checkAge = "age" in PersonalInfo;
+        document.write("Check Age in object is " + checkAge + "<br>");
+        var checkCountry = "country" in PersonalInfo;
+        document.write("Check Country in object is " + checkCountry + "<br>");
+        var checkfirstName = "firstName" in PersonalInfo;
+        document.write("Check firstName in object is " + checkfirstName + "<br>");
+        var checklastName = "lastName" in PersonalInfo;
+        document.write("Check lastName in object is " + checklastName + "<br>");
+
+
+        // Create a constructor function with some properties. Now
+        // create multiple records using the constructor
+
+        document.write("<br> <h2> Task 3 </h2> <br> ----ON Console---");
+        function StdBio(stdName, fatherName, roll, course) {
+            this.stdName = stdName;
+            this.fatherName = fatherName;
+            this.roll = roll;
+            this.course = course;
+        }
+        var stdBio1 = new StdBio("Mossa", "Ibrahim", "0", "Computer Information");
+        var stdBio2 = new StdBio("Ubaid", "Rehman", "1", "Graphic Designing");
+        var stdBio3 = new StdBio("Mueid", "Abdullah", "4", "Creative Writing");
+        console.log(stdBio1)
+        console.log(stdBio2)
+        console.log(stdBio3)
+
+        // Suppose you want to check population of your area, their
+        // educations and professions.
+        // Create a constructor function which holds following
+        // properties:
+        // Name, gender, address, education, profession,
+        // Enter all records one by one.
+        // Hint:
+        //  use select box for education and profession,
+        //  use radio box for gender
+        // Bonus : use can use localStorage to save records.
+
+        function reCord() {
+
+            function Checkpopulation(name, gender, address, education, profession) {
+                this.name = name;
+                this.gender = gender;
+                this.address = address;
+                this.education = education;
+                this.profession = profession;
+            }
+            var name1 = document.record.name.value;
+            var gender = document.record.gender.value;
+            var address = document.record.address.value;
+            var education = document.record.education.value;
+            var profession = document.record.profession.value;
+            var checkpopulation1 = new Checkpopulation(name1, gender, address, education, profession)
+            console.log(checkpopulation1)
+
+        }
+
+    </script>
+
+</body>
+
+</html>
